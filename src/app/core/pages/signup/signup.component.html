@@ -11,7 +11,8 @@
                 name="name"
                 id="name"
                 placeholder="Enter your name" 
-                class="input-field"/>
+                class="input-field" 
+                required/>
             </div>
             <div class="inputs">
                 <label for="email">Email address</label>
@@ -19,7 +20,8 @@
                 name="email" 
                 id="email" 
                 placeholder="Enter your email" 
-                class="input-field"/>
+                class="input-field"
+                required/>
             </div>
             <div class="inputs">
                 <label for="password">Password</label>
@@ -27,7 +29,8 @@
                 name="password" 
                 id="password" 
                 placeholder="Enter your password" 
-                class="input-field"/>
+                class="input-field" 
+                required/>
             </div>
             <div class="login-details">
                 <div class="checkbox-container">
@@ -36,19 +39,19 @@
                 </div>
                 <a [routerLink]="['/']">forgotten password</a>
             </div>
-            <button>Login</button>
+            <button class="login-button" >Sign Up</button>
         </form>
         <div class="divider">
             <div class="line"></div>
             <p class="or">or</p>
             <div class="line"></div>
         </div>
-        <div class="social-login">
+        <button class="social-login">
             <img src="/images/icons8-google 1.svg" alt="">
             <p>Signin with Google</p>
-        </div>
+        </button>
         <div class="signup-link">
-            <p class="signup">Don’t have an account? <a [routerLink]="['/']">Sign up</a></p>
+            <p class="signup">Have an account? <a [routerLink]="['/login']">Login</a></p>
         </div>
     </div>
     <img src="/images/chris-lee-70l1tDAI6rM-unsplash 1.svg" alt="">
