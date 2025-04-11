@@ -1,45 +1,58 @@
-
 <main>
     <div class="login-container">
         <div>
             <p class="title">Get Started Now</p>
         </div>
-        <form action="">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
             <div class="inputs">
-                <label for="name">Name</label>
-                <input type="text"
-                name="name"
-                id="name"
-                placeholder="Enter your name" 
-                class="input-field" 
-                required/>
+                <label for="username">Username</label>
+                <input type="text" 
+                formControlName="username"
+                id="username"
+                placeholder="Enter your username" 
+                class="input-field"
+                [ngClass]="{ 'invalid': signupForm.get('username')?.invalid && signupForm.get('username')?.touched }"
+                aria-required="true"
+                />
+                 <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error-message">
+                      <small *ngIf="signupForm.get('username')?.errors?.['required']">Username is required</small>             
+                     <small *ngIf="signupForm.get('username')?.errors?.['minlength']">Username must be at least 6 characters</small>
+                </div>
             </div>
             <div class="inputs">
-                <label for="email">Email address</label>
+                <label for="email">Email</label>
                 <input type="text" 
-                name="email" 
-                id="email" 
+                formControlName="email"
+                id="email"
                 placeholder="Enter your email" 
                 class="input-field"
-                required/>
+                [ngClass]="{ 'invalid': signupForm.get('email')?.invalid && signupForm.get('email')?.touched }"
+                aria-required="true"
+                />
+                 <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error-message">
+                      <small *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</small>             
+                     <small *ngIf="signupForm.get('email')?.errors?.['minlength']">Email must be at least 6 characters</small>
+                </div>
             </div>
             <div class="inputs">
                 <label for="password">Password</label>
                 <input type="password" 
-                name="password" 
+                formControlName="password"
                 id="password" 
                 placeholder="Enter your password" 
-                class="input-field" 
-                required/>
-            </div>
-            <div class="login-details">
-                <div class="checkbox-container">
-                    <input type="checkbox" class="checkbox"/>
-                    <p>Remember me for 30 days</p>
+                [ngClass]="{ 'invalid': signupForm.get('password')?.invalid && signupForm.get('password')?.touched }"
+                class="input-field"
+                aria-required="true"
+                />
+               <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error-message">
+                      <small *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</small>             
+                     <small *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</small>
                 </div>
-                <a [routerLink]="['/']">forgotten password</a>
             </div>
-            <button class="login-button" >Sign Up</button>
+            <button type="submit" 
+            class="login-button">
+            Login
+            </button>
         </form>
         <div class="divider">
             <div class="line"></div>
@@ -51,7 +64,7 @@
             <p>Signin with Google</p>
         </button>
         <div class="signup-link">
-            <p class="signup">Have an account? <a [routerLink]="['/login']">Login</a></p>
+            <p class="signup">Don’t have an account? <a [routerLink]="['/login']">Login</a></p>
         </div>
     </div>
     <img src="/images/chris-lee-70l1tDAI6rM-unsplash 1.svg" alt="">

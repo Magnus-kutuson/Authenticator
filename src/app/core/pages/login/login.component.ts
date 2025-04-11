@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-login',
   imports: [ RouterLink, ReactiveFormsModule, CommonModule ],
@@ -26,7 +27,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       console.log('Form submitted:', this.loginForm.value);
     } else {
-      this.loginForm.markAllAsTouched(); // Mark all fields as touched to show validation errors
+      this.loginForm.markAllAsTouched(); 
     }
   }
 }
